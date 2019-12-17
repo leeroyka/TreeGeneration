@@ -612,43 +612,7 @@ void branch(double x, double y, double z, double angle, double len, int deph, Tr
 		Point p(x, y, z);
 		t->addBranch(nx, ny, nz, deph, count, angle + i * angp, len, p);
 
-		//glColor3d(0.61, 0.262, 0);
-		//glBegin(GL_POLYGON);
-		//glVertex3d(x + cos(angle + i * angp + PI / 2) * (len / 10), y - (len / 20), z + sin(angle + i * angp + PI / 2) * (len / 20)); //1
-		//glVertex3d(x + cos(angle + i * angp + PI / 2) * (len / 20), y + (len / 20), z + sin(angle + i * angp + PI / 2) * (len / 20));//2
-		//glVertex3d(x + cos(angle + i * angp - PI / 2) * (len / 20), y + (len / 20), z + sin(angle + i * angp - PI / 2) * (len / 20));//3
-		//glVertex3d(x + cos(angle + i * angp - PI / 2) * (len / 20), y - (len / 20), z + sin(angle + i * angp - PI / 2) * (len / 20));//4
-		//glEnd(); //низ
-		//glBegin(GL_POLYGON);
-		//glVertex3d(nx + cos(angle + i * angp + PI / 2) * (len / 20), ny - (len / 20), nz + sin(angle + i * angp + PI / 2) * (len / 20));//1'
-		//glVertex3d(nx + cos(angle + i * angp + PI / 2) * (len / 20), ny + (len / 20), nz + sin(angle + i * angp + PI / 2) * (len / 20));//2'
-		//glVertex3d(nx + cos(angle + i * angp - PI / 2) * (len / 20), ny + (len / 20), nz + sin(angle + i * angp - PI / 2) * (len / 20));//3'
-		//glVertex3d(nx + cos(angle + i * angp - PI / 2) * (len / 20), ny - (len / 20), nz + sin(angle + i * angp - PI / 2) * (len / 20));//4'
-		//glEnd();//верх
-		//glBegin(GL_POLYGON);
-		//glVertex3d(x + cos(angle + i * angp + PI / 2) * (len / 20), y - (len / 20), z + sin(angle + i * angp + PI / 2) * (len / 20)); //1
-		//glVertex3d(nx + cos(angle + i * angp + PI / 2) * (len / 20), ny - (len / 20), nz + sin(angle + i * angp + PI / 2) * (len / 20));//1'
-		//glVertex3d(nx + cos(angle + i * angp - PI / 2) * (len / 20), ny - (len / 20), nz + sin(angle + i * angp - PI / 2) * (len / 20));//4'
-		//glVertex3d(x + cos(angle + i * angp - PI / 2) * (len / 20), y - (len / 20), z + sin(angle + i * angp - PI / 2) * (len / 20));//4
-		//glEnd();//перед
-		//glBegin(GL_POLYGON);
-		//glVertex3d(x + cos(angle + i * angp + PI / 2) * (len / 20), y + (len / 20), z + sin(angle + i * angp + PI / 2) * (len / 20));//2
-		//glVertex3d(nx + cos(angle + i * angp + PI / 2) * (len / 20), ny + (len / 20), nz + sin(angle + i * angp + PI / 2) * (len / 20));//2'
-		//glVertex3d(nx + cos(angle + i * angp - PI / 2) * (len / 20), ny + (len / 20), nz + sin(angle + i * angp - PI / 2) * (len / 20));//3'
-		//glVertex3d(x + cos(angle + i * angp - PI / 2) * (len / 20), y + (len / 20), z + sin(angle + i * angp - PI / 2) * (len / 20));//3
-		//glEnd();//зад
-		//glBegin(GL_POLYGON);
-		//glVertex3d(x + cos(angle + i * angp + PI / 2) * (len / 20), y - (len / 20), z + sin(angle + i * angp + PI / 2) * (len / 20)); //1
-		//glVertex3d(nx + cos(angle + i * angp + PI / 2) * (len / 20), ny - (len / 20), nz + sin(angle + i * angp + PI / 2) * (len / 20));//1'
-		//glVertex3d(nx + cos(angle + i * angp + PI / 2) * (len / 20), ny + (len / 20), nz + sin(angle + i * angp + PI / 2) * (len / 20));//2'
-		//glVertex3d(x + cos(angle + i * angp + PI / 2) * (len / 20), y + (len / 20), z + sin(angle + i * angp + PI / 2) * (len / 20));//2
-		//glEnd();//левый
-		//glBegin(GL_POLYGON);
-		//glVertex3d(x + cos(angle + i * angp - PI / 2) * (len / 20), y - (len / 20), z + sin(angle + i * angp - PI / 2) * (len / 20));//4
-		//glVertex3d(nx + cos(angle + i * angp - PI / 2) * (len / 20), ny - (len / 20), nz + sin(angle + i * angp - PI / 2) * (len / 20));//4'
-		//glVertex3d(nx + cos(angle + i * angp - PI / 2) * (len / 20), ny + (len / 20), nz + sin(angle + i * angp - PI / 2) * (len / 20));//3'
-		//glVertex3d(x + cos(angle + i * angp - PI / 2) * (len / 20), y + (len / 20), z + sin(angle + i * angp - PI / 2) * (len / 20));//3
-		//glEnd();//правый
+		
 	}
 }
 void genTree(double x, double y, Tree* t,int &ddeph)
@@ -762,6 +726,8 @@ void Render(OpenGL *ogl)
 	//Прогать тут  
 	srand(time(NULL));
 
+
+	//Debug
 	if (!isFirst)
 	{
 		isFirst = 1;
@@ -787,7 +753,7 @@ void Render(OpenGL *ogl)
 	//размер блика
 	glMaterialf(GL_FRONT, GL_SHININESS, sh2);
 
-
+	
 	if (!trees.empty())
 	{
 		list<Tree*>::iterator it;
@@ -811,8 +777,7 @@ void Render(OpenGL *ogl)
 	
 	if (GetAsyncKeyState(VK_SPACE))
 	{
-		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		//delete tree;
+		//Нарушение инкапсуляции
 		Tree* tree;
 		int x, y;
 		x = rand() % 30 - 15;
@@ -820,6 +785,8 @@ void Render(OpenGL *ogl)
 		tree = new Tree(x, y, 0);
 		genTree(x, y, tree, nndeph);
 		trees.push_back(tree);
+
+
 	}
 	if (GetAsyncKeyState(VK_DELETE))
 	{
@@ -829,30 +796,7 @@ void Render(OpenGL *ogl)
 		}
 	}
 
-	////Начало рисования квадратика станкина
-	//double A[2] = { -4, -4 };
-	//double B[2] = { 4, -4 };
-	//double C[2] = { 4, 4 };
-	//double D[2] = { -4, 4 };
-
-	//glBindTexture(GL_TEXTURE_2D, texId);
-
-	//glColor3d(0.6, 0.6, 0.6);
-	//glBegin(GL_QUADS);
-
-	//glNormal3d(0, 0, 1);
-	//glTexCoord2d(0, 0);
-	//glVertex2dv(A);
-	//glTexCoord2d(1, 0);
-	//glVertex2dv(B);
-	//glTexCoord2d(1, 1);
-	//glVertex2dv(C);
-	//glTexCoord2d(0, 1);
-	//glVertex2dv(D);
-
-	//glEnd();
-	////конец рисования квадратика станкина
-
+	
 
    //Сообщение вверху экрана
 
